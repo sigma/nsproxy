@@ -29,9 +29,9 @@ func proxy(c *cli.Context) {
 	addr := c.String("addr")
 	namespacePid := c.Int("namespace-pid")
 	namespacePath := c.String("namespace-path")
+
 	if namespacePid == 0 && namespacePath == "" {
-		fmt.Fprintln(os.Stderr, "error: a namespace pid or path is required")
-		return
+		fmt.Fprintln(os.Stderr, "warn: a namespace pid or path is required to setns, listening in this namespace")
 	}
 
 	path := c.String("path")
